@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobiles - Saqib Mobile Kohat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060606;--panel:#111113;--line:rgba(255,255,255,.1);--silver:#e7e9ed;--white:#fff;--muted:#98979d;--gold:#d4af37;--green:#25d366}
+*{box-sizing:border-box;margin:0;padding:0} body{background:var(--bg);color:var(--silver);font-family:Inter,sans-serif;min-height:100vh} a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}.container{width:min(1320px,100%);margin:auto;padding:0 32px}
+.nav{border-bottom:1px solid var(--line);background:rgba(6,6,6,.9);padding:20px 0}.nav-inner{display:flex;align-items:center;justify-content:space-between}.logo{font:700 20px 'Space Grotesk';color:#fff}.logo span{color:var(--gold)}.back{color:var(--muted);font-size:13px;transition:color .2s}.back:hover{color:#fff}
+.hero{padding:86px 0 54px;background:radial-gradient(55% 90% at 80% 10%,rgba(120,170,255,.14),transparent 65%),linear-gradient(135deg,#060606,#111113)}.eyebrow{color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase}.hero h1{font:600 clamp(42px,7vw,76px)/.98 'Space Grotesk';color:#fff;margin-top:16px;max-width:720px}.hero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:560px;margin-top:18px}
+.catalog{padding:58px 0 100px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:10px 16px;border-radius:999px;font-size:12px}.filter.active,.filter:hover{border-color:var(--gold);color:#111;background:var(--gold)}.count{font-size:12px;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid var(--line);background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.015));padding:18px;border-radius:14px;transition:transform .3s,border-color .3s}.card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.65)}.visual{height:220px;border-radius:10px;background:radial-gradient(circle at 50% 44%,rgba(212,175,55,.14),transparent 60%),#0b0b0d;display:flex;align-items:center;justify-content:center;overflow:hidden}.visual img{width:78%;height:90%;object-fit:contain;filter:drop-shadow(0 18px 18px rgba(0,0,0,.75))}.visual .fallback{font:600 34px 'Space Grotesk';color:#fff;opacity:.2}.brand{font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-top:18px}.card h2{font:600 21px 'Space Grotesk';color:#fff;margin-top:7px}.spec{font-size:12px;color:var(--muted);margin-top:9px}.meta{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}.tag{font-size:10px;padding:5px 8px;border:1px solid var(--line);color:var(--muted);border-radius:5px}.price{color:#fff;font:600 19px 'Space Grotesk';margin-top:18px}.inquire{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:15px;padding:11px;border:1px solid rgba(37,211,102,.45);border-radius:7px;color:var(--green);font-size:12px;font-weight:600;transition:background .2s,color .2s}.inquire:hover{background:var(--green);color:#07130b}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px}.footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:12px}.footer .container{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.container{padding:0 20px}.hero{padding:62px 0 42px}.toolbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:12px}.visual{height:180px}.card h2{font-size:17px}.price{font-size:16px}.footer .container{flex-direction:column}}@media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.visual{height:155px}.visual img{width:85%}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="container nav-inner"><a class="logo" href="index.html">SAQIB <span>MOBILE</span> KOHAT</a><a class="back" href="index.html">Back to home</a></div></header>
+<main>
+<section class="hero"><div class="container"><div class="eyebrow">Premium device collection</div><h1>Find your next mobile.</h1><p>Original new and quality-checked used phones, with PTA-approved options and direct WhatsApp support from our Kohat showroom.</p></div></section>
+<section class="catalog"><div class="container"><div class="toolbar"><div class="filters" id="filters"></div><div class="count" id="count"></div></div><div class="grid" id="grid"></div></div></section>
+</main>
+<footer class="footer"><div class="container"><span>© 2026 Saqib Mobile Kohat</span><a href="https://wa.me/923356661888" target="_blank">Chat on WhatsApp</a></div></footer>
+<script>
+const products=[
+ ['Apple','iPhone 16 Pro Max','8GB / 256GB','Approved','New',449000,'natural-titanium-cutout.webp'],['Apple','iPhone 15 Pro','8GB / 128GB','Approved','Used',329000,'natural-titanium-cutout.webp'],['Apple','iPhone 14','6GB / 128GB','Approved','New',239000,'natural-titanium-cutout.webp'],['Apple','iPhone 13','4GB / 128GB','Non-PTA','Used',179000,'natural-titanium-cutout.webp'],
+ ['Samsung','Galaxy S24 Ultra','12GB / 256GB','Approved','New',419000],['Samsung','Galaxy S23','8GB / 256GB','Approved','Used',249000],['Samsung','Galaxy A55','8GB / 128GB','Approved','New',99000],['Samsung','Galaxy A15','6GB / 128GB','Non-PTA','New',52000],
+ ['Vivo','V30 Pro','12GB / 256GB','Approved','New',129000,'v30 pro.jfif'],['Vivo','Y28','8GB / 128GB','Approved','New',54000,'v30 pro.jfif'],['Oppo','Reno 11','8GB / 256GB','Approved','New',119000],['Oppo','A78','8GB / 128GB','Non-PTA','Used',58000],
+ ['Realme','GT 6','12GB / 256GB','Approved','New',139000],['Realme','12x','8GB / 128GB','Approved','New',49000],['Infinix','Note 40 Pro','8GB / 256GB','Approved','New',62000],['Tecno','Camon 30','8GB / 256GB','Approved','New',69000]
+];
+const brands=['All',...new Set(products.map(product=>product[0]))];let selected='All';
+const money=value=>'Rs. '+value.toLocaleString('en-PK');
+function renderFilters(){document.getElementById('filters').innerHTML=brands.map(brand=>`<button class="filter ${brand===selected?'active':''}" data-brand="${brand}">${brand}</button>`).join('');document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{selected=button.dataset.brand;renderFilters();renderProducts()}));}
+function renderProducts(){const visible=selected==='All'?products:products.filter(product=>product[0]===selected);document.getElementById('count').textContent=visible.length+' devices available';document.getElementById('grid').innerHTML=visible.map(product=>`<article class="card"><div class="visual">${product[6]?`<img src="images/${product[6]}" alt="${product[1]}">`:'<div class="fallback">PHONE</div>'}</div><div class="brand">${product[0]}</div><h2>${product[1]}</h2><div class="spec">${product[2]}</div><div class="meta"><span class="tag">${product[3]}</span><span class="tag">${product[4]}</span></div><div class="price">${money(product[5])}</div><a class="inquire" target="_blank" href="https://wa.me/923356661888?text=${encodeURIComponent('I am interested in '+product[1])}">WhatsApp inquiry</a></article>`).join('');}
+renderFilters();renderProducts();
+</script>
+</body>
+</html>
