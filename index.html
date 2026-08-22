@@ -87,8 +87,12 @@ header.nav.scrolled{
   transition:all .3s var(--ease);
 }
 .nav-cta:hover{border-color:var(--gold); box-shadow:0 0 24px var(--gold-soft); transform:translateY(-1px);}
-.nav-burger{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
-.nav-burger span{width:22px; height:1.5px; background:#fff;}
+.nav-burger{display:none; flex-direction:column; align-items:center; justify-content:center; gap:5px; width:42px; height:42px; background:rgba(255,255,255,.04); border:1px solid var(--line-strong); border-radius:10px; padding:0; transition:border-color .25s,background .25s;}
+.nav-burger:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.nav-burger span{width:19px; height:1.5px; background:#fff; transition:transform .25s,opacity .25s;}
+.nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media(max-width:900px){
   .nav-links{display:none;}
   .nav-cta{display:none;}
@@ -130,11 +134,27 @@ header.nav.scrolled{
 @media(max-width:980px){ .hero-inner{grid-template-columns:1fr; text-align:center;} }
 
 .hero-badge{
-  display:inline-flex; align-items:center; gap:8px; padding:7px 16px; border-radius:999px;
+  display:flex; width:max-content; align-items:center; gap:8px; padding:7px 16px; border-radius:999px;
   border:1px solid var(--line-strong); background:rgba(255,255,255,.03); font-size:11px;
-  letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:28px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 auto 28px;
 }
+.hero-official-logo{
+  position:relative; width:min(190px, 46vw); aspect-ratio:1; object-fit:cover; display:block;
+  margin:0 auto 24px; border:1px solid rgba(210,222,239,.34); border-radius:50%;
+  box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 30px rgba(139,181,232,.12), inset 0 0 0 1px rgba(255,255,255,.08);
+  animation:heroLogoReveal 1s var(--ease) .12s both, heroLogoFloat 6s ease-in-out 1.2s infinite;
+}
+@keyframes heroLogoReveal{from{opacity:0; transform:translateY(16px) scale(.94)}to{opacity:1; transform:translateY(0) scale(1)}}
+@keyframes heroLogoFloat{50%{transform:translateY(-5px)}}
 .hero-badge span.dot{width:5px; height:5px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold);}
+
+@media(min-width:981px){
+  .hero-inner > div:first-child{text-align:center;}
+  .hero-official-logo,.hero-badge{margin-left:auto; margin-right:auto;}
+  .hero-title{text-align:center;}
+  .hero-sub{margin-left:auto; margin-right:auto;}
+  .hero-ctas,.hero-stats-mini{justify-content:center;}
+}
 
 .hero-title{font-size:clamp(46px, 7vw, 84px); line-height:.98; font-weight:700; color:#fff;}
 .hero-title .line{display:block; overflow:hidden;}
@@ -252,7 +272,7 @@ header.nav.scrolled{
 .scroll-cue{display:none;}
 
 /* ============ FLOATING SOCIAL ============ */
-.float-social{position:fixed; right:22px; top:50%; transform:translateY(-50%); z-index:400; display:flex; flex-direction:column; gap:14px;}
+.float-social{position:fixed; right:22px; bottom:22px; z-index:400; display:flex; flex-direction:column; gap:14px;}
 .float-btn{
   display:flex; align-items:center; gap:10px; padding:13px; border-radius:999px;
   background:rgba(17,17,19,.75); border:1px solid var(--line-strong); backdrop-filter:blur(12px);
@@ -266,7 +286,7 @@ header.nav.scrolled{
 .float-btn.wa:hover{border-color:#25D366; box-shadow:0 0 26px rgba(37,211,102,.35);}
 .float-btn.fb:hover{border-color:#4C8EF7; box-shadow:0 0 26px rgba(76,142,247,.3);}
 @media(max-width:768px){
-  .float-social{right:14px; gap:10px;}
+  .float-social{right:14px; bottom:14px; gap:10px;}
   .float-btn{width:44px; padding:11px;}
   .float-btn:hover{width:44px;}
   .float-btn span.lbl{display:none;}
@@ -501,6 +521,42 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
 .color-dots{display:flex; gap:8px; margin-top:6px;}
 .color-dots span{width:20px; height:20px; border-radius:50%; border:2px solid rgba(255,255,255,.25); display:inline-block;}
 
+/* ============ CINEMATIC LOGO REVEAL ============ */
+.intro-reveal{
+  position:fixed; inset:0; z-index:1200; display:grid; place-items:center; overflow:hidden;
+  background:#010203; opacity:1; visibility:visible; transition:opacity .85s ease, visibility .85s ease;
+}
+.intro-reveal.is-done{opacity:0; visibility:hidden; pointer-events:none;}
+.intro-reveal::before{
+  content:''; position:absolute; width:min(72vw,760px); aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle, rgba(176,201,235,.15), rgba(76,111,155,.06) 32%, transparent 68%);
+  filter:blur(18px); animation:introHalo 5s ease-in-out infinite;
+}
+.intro-reveal::after{
+  content:''; position:absolute; inset:-30%; opacity:.28; pointer-events:none;
+  background:repeating-linear-gradient(112deg, transparent 0 15%, rgba(195,218,248,.12) 16%, transparent 17% 29%);
+  transform:translateX(-16%); animation:introRays 8s ease-in-out infinite alternate;
+}
+.intro-noise{position:absolute; inset:0; opacity:.12; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.45) .6px, transparent .7px); background-size:5px 5px; mix-blend-mode:screen;}
+.intro-particles{position:absolute; inset:0; pointer-events:none;}
+.intro-particle{position:absolute; width:2px; height:2px; border-radius:50%; background:#dcecff; box-shadow:0 0 10px 2px rgba(185,218,255,.65); opacity:0; animation:introParticle 4.8s ease-in-out infinite;}
+.intro-mark{position:relative; z-index:2; width:min(72vw,430px); transform:translateY(24px) scale(.78); opacity:0; filter:brightness(.76) contrast(1.12) drop-shadow(0 0 0 rgba(167,211,255,0)); animation:introMark 1.65s cubic-bezier(.16,.84,.44,1) .35s forwards, introBreath 4.5s ease-in-out 2s infinite;}
+.intro-mark img{width:100%; height:auto; display:block; border-radius:50%; mix-blend-mode:screen;}
+.intro-mark::before{
+  content:''; position:absolute; inset:-4%; z-index:3; pointer-events:none; border-radius:50%;
+  background:linear-gradient(104deg, transparent 35%, rgba(255,255,255,.78) 49%, rgba(181,220,255,.2) 54%, transparent 66%);
+  transform:translateX(-125%); mix-blend-mode:screen; animation:introSweep 1.25s ease-in-out 1.2s forwards;
+}
+.intro-caption{position:absolute; z-index:3; bottom:10vh; color:rgba(221,232,245,.58); font-size:10px; letter-spacing:.42em; text-transform:uppercase; opacity:0; animation:introCaption 1s ease 1.55s forwards;}
+@keyframes introHalo{50%{transform:scale(1.18);opacity:.72}100%{transform:scale(.96);}}
+@keyframes introRays{to{transform:translateX(16%) rotate(3deg);opacity:.5}}
+@keyframes introParticle{0%{opacity:0;transform:translate3d(0,24px,0) scale(.5)}35%,70%{opacity:.7}100%{opacity:0;transform:translate3d(20px,-100px,0) scale(1.3)}}
+@keyframes introMark{to{transform:translateY(0) scale(1);opacity:1;filter:brightness(1) contrast(1.08) drop-shadow(0 0 28px rgba(167,211,255,.22));}}
+@keyframes introSweep{to{transform:translateX(125%)}}
+@keyframes introBreath{50%{filter:brightness(1.06) contrast(1.1) drop-shadow(0 0 40px rgba(167,211,255,.34));transform:translateY(-4px) scale(1.015)}}
+@keyframes introCaption{to{opacity:1}}
+@media(max-width:600px){.intro-mark{width:min(82vw,390px)}.intro-caption{bottom:8vh;letter-spacing:.3em;font-size:9px}}
+
 /* reduced motion */
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
@@ -510,6 +566,25 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
 </style>
 </head>
 <body>
+
+<!-- ============ CINEMATIC OPENING ============ -->
+<div class="intro-reveal" id="introReveal" role="status" aria-label="Saqib Mobile">
+  <div class="intro-noise"></div>
+  <div class="intro-particles" aria-hidden="true">
+    <i class="intro-particle" style="left:18%;top:64%;animation-delay:.2s"></i>
+    <i class="intro-particle" style="left:28%;top:76%;animation-delay:1.1s"></i>
+    <i class="intro-particle" style="left:76%;top:67%;animation-delay:.7s"></i>
+    <i class="intro-particle" style="left:84%;top:42%;animation-delay:1.8s"></i>
+    <i class="intro-particle" style="left:13%;top:39%;animation-delay:2.3s"></i>
+    <i class="intro-particle" style="left:68%;top:81%;animation-delay:2.9s"></i>
+    <i class="intro-particle" style="left:42%;top:24%;animation-delay:3.3s"></i>
+    <i class="intro-particle" style="left:91%;top:71%;animation-delay:3.8s"></i>
+  </div>
+  <div class="intro-mark">
+    <img src="images/saqib logo.jpg" alt="Saqib Mobile logo">
+  </div>
+  <div class="intro-caption">Premium Mobile Showroom · Kohat</div>
+</div>
 
 <!-- ============ NAVBAR ============ -->
 <header class="nav" id="navbar">
@@ -527,7 +602,7 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="shop.html" class="nav-cta">Shop Now</a>
-    <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -550,6 +625,7 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
   <div id="particles"></div>
   <div class="container hero-inner">
     <div>
+      <img class="hero-official-logo" src="images/saqib official logo.png" alt="Saqib Mobile official logo">
       <div class="hero-badge"><span class="dot"></span> Wholesale &amp; Retail Dealer</div>
       <h1 class="hero-title">
         <span class="line"><span>SAQIB MOBILE</span></span>
@@ -893,6 +969,20 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
 </div>
 
 <script>
+/* ================= CINEMATIC OPENING ================= */
+const introReveal = document.getElementById('introReveal');
+const dismissIntro = () => introReveal.classList.add('is-done');
+const introAlreadySeen = sessionStorage.getItem('saqibMobileIntroSeen') === 'true';
+if (introAlreadySeen || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  dismissIntro();
+} else {
+  sessionStorage.setItem('saqibMobileIntroSeen', 'true');
+  window.setTimeout(dismissIntro, 3600);
+  introReveal.addEventListener('click', dismissIntro, {once:true});
+}
+</script>
+
+<script>
 /* ================= DATA ================= */
 const PHONE_COLORS = {
   Apple:['#8b8c8e','#e3d9c5','#2b2d30','#dfe3e6'],
@@ -1217,7 +1307,10 @@ const burger = document.getElementById('burger');
 const navLinksList = document.querySelector('.nav-links');
 burger.addEventListener('click', ()=>{
   const open = navLinksList.style.display === 'flex';
-  navLinksList.style.cssText = open ? '' : 'display:flex; flex-direction:column; position:fixed; top:64px; right:20px; background:rgba(10,10,10,.97); border:1px solid var(--line-strong); border-radius:16px; padding:20px 28px; gap:18px; backdrop-filter:blur(20px);';
+  navLinksList.style.cssText = open ? '' : 'display:flex; flex-direction:column; position:fixed; top:78px; right:20px; background:rgba(10,10,10,.97); border:1px solid var(--line-strong); border-radius:14px; padding:20px 28px; gap:18px; backdrop-filter:blur(20px);';
+  burger.classList.toggle('open', !open);
+  burger.setAttribute('aria-expanded', String(!open));
+  burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
