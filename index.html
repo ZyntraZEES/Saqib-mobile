@@ -272,7 +272,7 @@ header.nav.scrolled{
 .scroll-cue{display:none;}
 
 /* ============ FLOATING SOCIAL ============ */
-.float-social{position:fixed; right:22px; bottom:22px; z-index:400; display:flex; flex-direction:column; gap:14px;}
+.float-social{position:fixed; right:22px; bottom:22px; z-index:400; display:flex; flex-direction:column; align-items:flex-end; gap:14px; width:158px;}
 .float-btn{
   display:flex; align-items:center; gap:10px; padding:13px; border-radius:999px;
   background:rgba(17,17,19,.75); border:1px solid var(--line-strong); backdrop-filter:blur(12px);
@@ -286,7 +286,7 @@ header.nav.scrolled{
 .float-btn.wa:hover{border-color:#25D366; box-shadow:0 0 26px rgba(37,211,102,.35);}
 .float-btn.fb:hover{border-color:#4C8EF7; box-shadow:0 0 26px rgba(76,142,247,.3);}
 @media(max-width:768px){
-  .float-social{right:14px; bottom:14px; gap:10px;}
+  .float-social{right:14px; bottom:14px; gap:10px; width:44px;}
   .float-btn{width:44px; padding:11px;}
   .float-btn:hover{width:44px;}
   .float-btn span.lbl{display:none;}
@@ -362,7 +362,9 @@ header.nav.scrolled{
 .tag.pta{color:#8fc7e3; border-color:rgba(143,199,227,.3);}
 .pcard-stage{height:190px; display:flex; align-items:center; justify-content:center; position:relative; margin:8px 0 6px;}
 .pcard-stage svg{transition:transform .55s var(--ease), filter .55s; filter:drop-shadow(0 14px 18px rgba(0,0,0,.55));}
+.pcard-stage img{width:82%; height:178px; object-fit:contain; transition:transform .55s var(--ease), filter .55s; filter:drop-shadow(0 14px 18px rgba(0,0,0,.55));}
 .pcard:hover .pcard-stage svg{transform:translateY(-10px) scale(1.05);}
+.pcard:hover .pcard-stage img{transform:translateY(-10px) scale(1.05);}
 .pcard-stage .glow{position:absolute; width:120px; height:30px; bottom:6px; left:50%; transform:translateX(-50%);
   background:radial-gradient(ellipse, rgba(212,175,55,.35), transparent 70%); filter:blur(6px); opacity:.6;}
 .pcard-brand{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;}
@@ -514,6 +516,9 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
 @media(max-width:680px){ .modal-grid{grid-template-columns:1fr;} }
 .modal-stage{display:flex; align-items:center; justify-content:center; min-height:260px; position:relative;}
 .modal-stage svg{width:190px; filter:drop-shadow(0 24px 30px rgba(0,0,0,.6));}
+.modal-gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:100%;}
+.modal-gallery img{width:100%; height:190px; object-fit:contain; border:1px solid var(--line); border-radius:10px; background:#0b0b0d; filter:drop-shadow(0 14px 18px rgba(0,0,0,.5));}
+.modal-gallery img:first-child{grid-column:1/-1; height:250px;}
 .modal-specs{display:flex; flex-direction:column; gap:14px; margin:22px 0;}
 .modal-specs .row{display:flex; justify-content:space-between; padding-bottom:12px; border-bottom:1px solid var(--line); font-size:13.5px;}
 .modal-specs .row span:first-child{color:var(--muted);}
@@ -908,41 +913,7 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">SAQIB MOBILE KOHAT</div>
-        <p>Wholesale &amp; Retail Dealer — all kinds of new &amp; used mobiles, accessories and repair services.</p>
-        <div class="foot-social" style="margin-top:22px;">
-          <a href="https://wa.me/923356661888" target="_blank" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 4.99L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96S17.55 2 12.04 2z"/></svg></a>
-          <a href="#" aria-label="WhatsApp Channel"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8l9 6 9-6M4 4h16a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/></svg></a>
-          <a href="https://facebook.com/saqibmobilekohat" target="_blank" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="#" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.95-1.39-2.16-1.39-3.42h-3.09v13.9a3.05 3.05 0 1 1-2.16-2.92V10.3a6.15 6.15 0 1 0 5.25 6.08V9.6a8.86 8.86 0 0 0 5.19 1.67V8.2a5.4 5.4 0 0 1-3.8-2.38z"/></svg></a>
-        </div>
-      </div>
-      <div class="foot-col">
-        <h6>Navigate</h6>
-        <ul>
-          <li><a href="#top">Home</a></li>
-          <li><a href="mobiles.html">Mobiles</a></li>
-          <li><a href="accessories.html">Accessories</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">Why Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h6>Showroom</h6>
-        <ul>
-          <li>Jinnah Plaza, Shop #3</li>
-          <li>Kohat, Khyber Pakhtunkhwa</li>
-          <li>Pakistan</li>
-          <li><a href="https://wa.me/923356661888" target="_blank">0335-6661888</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">© <span id="year"></span> Saqib Mobile Kohat. All Rights Reserved.</div>
-  </div>
+ 
 </footer>
 
 <!-- ============ PRODUCT MODAL ============ -->
@@ -996,25 +967,34 @@ const PHONE_COLORS = {
 };
 
 const PRODUCTS = [
-  {brand:'Apple', model:'iPhone 16 Pro Max', spec:'8GB / 256GB', pta:'Approved', cond:'New', price:449000, cam:3, arrangement:'diag'},
-  {brand:'Apple', model:'iPhone 15 Pro', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:329000, cam:3, arrangement:'diag'},
-  {brand:'Apple', model:'iPhone 14', spec:'6GB / 128GB', pta:'Approved', cond:'New', price:239000, cam:2, arrangement:'diag'},
+  {brand:'Apple', model:'iPhone 15 Pro JV', spec:'8GB / 128GB', pta:'Non-PTA', cond:'Used', price:134999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['15 pro 128 gb jv 100BH jv back refined.png','15 pro 128 gb jv 100BH jv left.jpeg','15 pro 128 gb jv 100BH jv right side.jpeg']},
+  {brand:'Apple', model:'iPhone 15 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:0, cam:3, arrangement:'diag', detailsPage:'product-details.html', images:['15 pro max jv 256gb back.png','15 pro max jv 256gb front.jpeg','15 pro max jv 256gb right side.jpeg']},
+  {brand:'Apple', model:'iPhone 14 Pro Max', spec:'6GB / 256GB', pta:'Non-PTA', cond:'Used', price:129999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Purple', health:'100%', images:['14 pro max 256gb back.png','14 pro max 256 gb front.jpeg','14 pro max 256 gb left.jpeg','14 pro max 256 gb right.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:0, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13 pro max 256 jv.png','13 pro max 256gb jv left side.jpeg','13 pro max 256gb jv right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max Non-PTA FU', spec:'FU / 100% Health', pta:'Non-PTA', cond:'Used', price:0, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13_pro_max_non_pta_100_health_back-removebg-preview.png','13 pro max non pta 100 health left side.jpeg','13 pro max non pta 100 health right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max JV 128GB', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:0, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'99%', images:['13_pro_max_jv_128gb_99_health_back-removebg-preview.png','13 pro max jv 128gb 99 health left side.jpeg','13 pro max jv 128gb 99 health right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max Gold', spec:'128GB / JV', pta:'Non-PTA', cond:'Used', price:129999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Gold', health:'100%', images:['13 pro max 128gb golden.png','13 pro max 128gb golden left side.jpeg','13 pro max 128gb golden right.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:109999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Silver', health:'100%', images:['13 pro non pta fu 128gb.png','13 pro non pta fu 128gb left side.jpeg','13 pro non pta fu 128gb right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro PTA Approved', spec:'6GB / 512GB', pta:'Approved', cond:'Used', price:179999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Silver', health:'Confirm at showroom', images:['13 pro pta approved 512gb.png','13 pro pta approved 512gb left side.jpeg','13 pro pta approved 512gb right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max PTA', spec:'256GB / PTA Approved', pta:'Approved', cond:'Used', price:179999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13 pro max pta approved 256gb 100% BH.png','13 pro max pta approved pta ok left side.jpeg','13 pro max pta approved pta ok right side.jpeg']},
   {brand:'Apple', model:'iPhone 13', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:179000, cam:2, arrangement:'diag'},
-  {brand:'Samsung', model:'Galaxy S24 Ultra', spec:'12GB / 256GB', pta:'Approved', cond:'New', price:419000, cam:4, arrangement:'vert'},
-  {brand:'Samsung', model:'Galaxy S23', spec:'8GB / 256GB', pta:'Approved', cond:'Used', price:249000, cam:3, arrangement:'vert'},
-  {brand:'Samsung', model:'Galaxy A55', spec:'8GB / 128GB', pta:'Approved', cond:'New', price:99000, cam:3, arrangement:'vert'},
-  {brand:'Samsung', model:'Galaxy A15', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:52000, cam:3, arrangement:'vert'},
-  {brand:'Vivo', model:'V30 Pro', spec:'12GB / 256GB', pta:'Approved', cond:'New', price:129000, cam:2, arrangement:'circle'},
-  {brand:'Vivo', model:'Y28', spec:'8GB / 128GB', pta:'Approved', cond:'New', price:54000, cam:2, arrangement:'circle'},
-  {brand:'Oppo', model:'Reno 11', spec:'8GB / 256GB', pta:'Approved', cond:'New', price:119000, cam:3, arrangement:'circle'},
-  {brand:'Oppo', model:'A78', spec:'8GB / 128GB', pta:'Non-PTA', cond:'Used', price:58000, cam:2, arrangement:'circle'},
-  {brand:'Realme', model:'GT 6', spec:'12GB / 256GB', pta:'Approved', cond:'New', price:139000, cam:3, arrangement:'vert'},
-  {brand:'Realme', model:'12x', spec:'8GB / 128GB', pta:'Approved', cond:'New', price:49000, cam:2, arrangement:'vert'},
-  {brand:'Infinix', model:'Note 40 Pro', spec:'8GB / 256GB', pta:'Approved', cond:'New', price:62000, cam:2, arrangement:'circle'},
+  {brand:'Apple', model:'iPhone 14 Red', spec:'Storage to confirm / 86% Health', pta:'Non-PTA', cond:'Used', price:69999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Red', health:'86%', images:['14_simple_red_colour_86BH_back-removebg-preview.png','14 simple red colour 86BH left.jpeg','14 simple red colour 86BH right .jpeg']},
+  {brand:'Apple', model:'iPhone 13 Simple 87% BH', spec:'Storage to confirm', pta:'Non-PTA', cond:'Used', price:59999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'87%', images:['13_simple_87_BH_back-removebg-preview.png','13 simple 87 BH left.jpeg','13 simple 87 BH right.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Simple JV 128GB', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:64999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'100%', images:['13_simple_128_100BH_jv_back-removebg-preview.png','13 simple 128 100BH jv left.jpeg','13 simple 128 100BH jv right.jpeg']},
+  {brand:'Apple', model:'iPhone 12 Simple Blue JV', spec:'Storage to confirm', pta:'Non-PTA', cond:'Used', price:49999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Blue', health:'83%', images:['12_simple_blue_jv_83_health_back-removebg-preview.png','12 simple blue jv 83 health left.jpeg','12 simple blue jv 83 health right.jpeg']},
+  {brand:'Apple', model:'iPhone 11 Simple White 96% BH', spec:'Storage to confirm', pta:'Non-PTA', cond:'Used', price:49999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'White', health:'96%', images:['11 simple white 96% non back.png']},
+  {brand:'Apple', model:'iPhone 12 Simple Black JV', spec:'Storage to confirm', pta:'Non-PTA', cond:'Used', price:49999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'88%', images:['simple_12_black_colour_jv_88_health_back-removebg-preview.png','simple 12 black colour jv 88 health left.jpeg','simple 12 black colour jv 88 health right.jpeg']},
+  {brand:'Apple', model:'iPhone XR Convert 17 Bypass', spec:'Storage to confirm', pta:'Bypass', cond:'Used', price:29999, cam:1, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['xr_convert_17_bypass_back-removebg-preview.png','xr convert 17 bypass left.jpeg','xr convert 17 bypass  right.jpeg']},
+  {brand:'Apple', model:'iPhone XR PTA 128GB', spec:'4GB / 128GB', pta:'Approved', cond:'Used', price:49999, cam:1, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['xr_pta_128gb_back-removebg-preview.png','xr pta 128gb left.jpeg','xr pta 128gb right.jpeg']},
+  {brand:'Samsung', model:'Galaxy S24 Ultra CPID', spec:'12GB / 256GB', pta:'CPID', cond:'Used', price:199999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s24_ultra_cpid_back-removebg-preview.png','s24 ultra cpid left.jpeg','s24 ultra cpid right.jpeg']},
+  {brand:'Samsung', model:'Galaxy S22 Ultra Official PTA', spec:'12GB / 256GB', pta:'Approved', cond:'Used', price:144999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['S22_ultra_official_pta_back-removebg-preview.png','S22 ultra official pta left.jpeg','S22 ultra official pta right.jpeg']},
+  {brand:'Samsung', model:'Galaxy S25 12 256 CPID', spec:'12GB / 256GB', pta:'CPID', cond:'Used', price:0, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['S25_12_256_cpid_back-removebg-preview.png','S25 12 256 cpid left.jpeg','S25 12 256 cpid right.jpeg']},
   {brand:'Infinix', model:'Hot 40i', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:29000, cam:2, arrangement:'circle'},
-  {brand:'Tecno', model:'Camon 30', spec:'8GB / 256GB', pta:'Approved', cond:'New', price:69000, cam:3, arrangement:'circle'},
   {brand:'Tecno', model:'Spark 20', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:34000, cam:2, arrangement:'circle'},
   {brand:'Pixel', model:'Pixel 8 Pro', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:239000, cam:3, arrangement:'squircle'},
+  {brand:'Pixel', model:'Pixel 8 PTA OK', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:0, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_8_pta_ok_back-removebg-preview.png','pixel 8 pta ok left.jpeg','pixel 8 pta ok right.jpeg']},
+  {brand:'Pixel', model:'Pixel 8 CPID', spec:'8GB / 128GB', pta:'CPID', cond:'Used', price:94999, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_8_cpid_back-removebg-preview.png','pixel 8 cpid left.jpeg','pixel 8 cpid right.jpeg']},
+  {brand:'Pixel', model:'Pixel 6a PTA Approved', spec:'6GB / 128GB', pta:'Approved', cond:'Used', price:49999, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_6a_pta_approved_back-removebg-preview.png','pixel 6a pta approved right.jpeg']},
   {brand:'Pixel', model:'Pixel 7a', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:129000, cam:2, arrangement:'squircle'},
 ];
 
@@ -1110,7 +1090,7 @@ const grid = document.getElementById('prodGrid');
 let visibleCount = 8;
 let state = {brand:'all', condition:'all', pta:'all', sort:'none', q:''};
 
-function fmtPrice(n){ return 'Rs. ' + n.toLocaleString('en-PK'); }
+function fmtPrice(n){ return n ? 'Rs. ' + n.toLocaleString('en-PK') : 'Ask in-store'; }
 
 function filteredProducts(){
   let list = PRODUCTS.filter(p=>{
@@ -1140,7 +1120,7 @@ function renderProducts(){
         <span class="tag ${p.cond==='New'?'new':'used'}">${p.cond}</span>
         <span class="tag ${p.pta==='Approved'?'pta':''}">${p.pta==='Approved'?'PTA Approved':'Non-PTA'}</span>
       </div>
-      <div class="pcard-stage"><div class="glow"></div>${phoneSVG(p.brand, p.arrangement, 118)}</div>
+      <div class="pcard-stage"><div class="glow"></div>${p.images ? `<img src="images/${p.images[0]}" alt="${p.model}">` : phoneSVG(p.brand, p.arrangement, 118)}</div>
       <div class="pcard-brand">${p.brand}</div>
       <h4>${p.model}</h4>
       <div class="spec">${p.spec}</div>
@@ -1150,14 +1130,14 @@ function renderProducts(){
           <button class="icon-btn view-btn" title="View Details" aria-label="View Details">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
-          <a class="icon-btn wa" href="https://wa.me/923356661888?text=${encodeURIComponent('Hi, I am interested in '+p.brand+' '+p.model)}" target="_blank" title="WhatsApp Inquiry" aria-label="WhatsApp Inquiry">
+          <a class="icon-btn wa" href="${p.detailsPage ? `https://wa.me/923356661888?text=${encodeURIComponent('Hi, I am interested in '+p.brand+' '+p.model+'. Product details and photos: '+new URL(p.detailsPage+'?model='+encodeURIComponent(p.model), window.location.href).href)}` : `https://wa.me/923356661888?text=${encodeURIComponent('Hi, I am interested in '+p.brand+' '+p.model)}`}" target="_blank" title="WhatsApp Inquiry" aria-label="WhatsApp Inquiry">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 4.99L2 22l5.2-1.36a9.94 9.94 0 0 0 4.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96S17.55 2 12.04 2z"/></svg>
           </a>
         </div>
       </div>
     `;
-    card.querySelector('.view-btn').addEventListener('click', ()=>openModal(p));
-    card.addEventListener('click', (e)=>{ if(!e.target.closest('.icon-btn')) openModal(p); });
+    card.querySelector('.view-btn').addEventListener('click', ()=>window.location.assign((p.detailsPage || 'product-details.html')+'?model='+encodeURIComponent(p.model)));
+    card.addEventListener('click', (e)=>{ if(!e.target.closest('.icon-btn')) window.location.assign((p.detailsPage || 'product-details.html')+'?model='+encodeURIComponent(p.model)); });
     grid.appendChild(card);
   });
   document.getElementById('loadMoreBtn').style.display = list.length > visibleCount ? 'inline-flex' : 'none';
@@ -1184,18 +1164,20 @@ const overlay = document.getElementById('modalOverlay');
 function openModal(p){
   document.getElementById('modalBrand').textContent = p.brand;
   document.getElementById('modalName').textContent = p.model;
-  document.getElementById('modalStage').innerHTML = phoneSVG(p.brand, p.arrangement, 190);
+  document.getElementById('modalStage').innerHTML = p.images ? `<div class="modal-gallery">${p.images.map(image=>`<img src="images/${image}" alt="${p.model}">`).join('')}</div>` : phoneSVG(p.brand, p.arrangement, 190);
   document.getElementById('modalSpecs').innerHTML = `
     <div class="row"><span>Storage / RAM</span><span>${p.spec}</span></div>
     <div class="row"><span>Condition</span><span>${p.cond}</span></div>
     <div class="row"><span>PTA Status</span><span>${p.pta==='Approved'?'PTA Approved':'Non-PTA'}</span></div>
     <div class="row"><span>Warranty</span><span>${p.cond==='New' ? '1 Year Official' : '7 Days Check Warranty'}</span></div>
     <div class="row"><span>Availability</span><span>In Stock</span></div>
+    ${p.color ? `<div class="row"><span>Color</span><span>${p.color}</span></div>` : ''}
+    ${p.health ? `<div class="row"><span>Battery Health</span><span>${p.health}</span></div>` : ''}
   `;
   const colors = PHONE_COLORS[p.brand] || ['#555','#999'];
   document.getElementById('modalColors').innerHTML = colors.map(c=>`<span style="background:${c}"></span>`).join('');
   document.getElementById('modalPrice').innerHTML = fmtPrice(p.price) + '<small>Starting price</small>';
-  document.getElementById('modalWa').href = `https://wa.me/923356661888?text=${encodeURIComponent('Hi, I am interested in '+p.brand+' '+p.model)}`;
+  document.getElementById('modalWa').href = `https://wa.me/923356661888?text=${encodeURIComponent('Hi, I am interested in '+p.brand+' '+p.model+(p.detailsPage ? '. Product details and photos: '+new URL(p.detailsPage+'?model='+encodeURIComponent(p.model), window.location.href).href : ''))}`;
   overlay.classList.add('open');
   document.body.style.overflow='hidden';
 }

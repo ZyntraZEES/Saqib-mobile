@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast Chargers - Saqib Mobile Kohat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+<style>
+.charger-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.charger-card{display:flex;flex-direction:column;min-height:300px}
+.charger-card .price{margin-top:auto}
+.charger-specs{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.charger-specs span{border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted);font-size:11px}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--gold);font-size:13px;font-weight:600}
+.card-link span{font-size:18px;transition:transform .2s}
+.card-link:hover span{transform:translateX(4px)}
+@media(max-width:800px){.charger-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.charger-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">SAQIB <span>MOBILE</span> KOHAT</a>
+    <nav class="nav-links"><a href="mobiles.html">Mobiles</a><a href="accessories.html">Accessories</a><a href="services.html">Services</a><a href="about.html">Why Us</a><a href="contact.html">Contact</a></nav>
+    <a class="back" href="accessories.html">Back to accessories</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Fast charging collection</div>
+      <h1>Power up without the wait.</h1>
+      <p>Choose the right charger for your phone, laptop or everyday setup. Stock and compatibility can be confirmed on WhatsApp.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Six options in store</div><h2>Chargers for every routine.</h2><p>From compact travel plugs to powerful multi-port charging, find a dependable fit for your devices.</p></div>
+      <div class="charger-grid">
+        <article class="card charger-card"><div class="icon">01</div><h3>20W USB-C PD</h3><p>Compact fast charger for iPhone, Android and everyday travel.</p><div class="charger-specs"><span>20W PD</span><span>USB-C</span></div><div class="price">Rs. 1,200</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%2020W%20USB-C%20PD%20charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+        <article class="card charger-card"><div class="icon">02</div><h3>25W Super Fast</h3><p>Reliable high-speed charging for compatible Samsung and Android phones.</p><div class="charger-specs"><span>25W</span><span>USB-C</span></div><div class="price">Rs. 1,500</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%2025W%20Super%20Fast%20charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+        <article class="card charger-card"><div class="icon">03</div><h3>33W Turbo Charge</h3><p>Fast everyday power with a durable design for busy phone users.</p><div class="charger-specs"><span>33W</span><span>USB-A + C</span></div><div class="price">Rs. 1,800</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%2033W%20Turbo%20Charge%20charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+        <article class="card charger-card"><div class="icon">04</div><h3>45W GaN Charger</h3><p>Small, efficient GaN power for phones, tablets and compatible laptops.</p><div class="charger-specs"><span>45W GaN</span><span>USB-C</span></div><div class="price">Rs. 3,200</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%2045W%20GaN%20charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+        <article class="card charger-card"><div class="icon">05</div><h3>65W Laptop PD</h3><p>High-output USB-C charging for laptops, tablets and flagship phones.</p><div class="charger-specs"><span>65W PD</span><span>USB-C</span></div><div class="price">Rs. 4,500</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%2065W%20Laptop%20PD%20charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+        <article class="card charger-card"><div class="icon">06</div><h3>3-Port Family Charger</h3><p>Charge multiple devices together with one convenient wall plug.</p><div class="charger-specs"><span>36W total</span><span>3 ports</span></div><div class="price">Rs. 2,200</div><a class="card-link" href="https://wa.me/923356661888?text=I%20want%20to%20ask%20about%20the%203-Port%20Family%20Charger" target="_blank">Ask about stock <span>&rarr;</span></a></article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container"><span>&copy; 2026 Saqib Mobile Kohat</span><a href="contact.html">Visit showroom</a></div></footer>
+<script>
+document.querySelectorAll('.card-link').forEach((link,index)=>{
+  const card=link.closest('article');
+  card.id='product-'+(index+1);
+  link.addEventListener('click',event=>{
+    event.preventDefault();
+    const product=card.querySelector('h3').textContent;
+    const productUrl=window.location.href.split('#')[0]+'#product-'+(index+1);
+    window.open('https://wa.me/923356661888?text='+encodeURIComponent('I want to ask about '+product+'\nProduct link: '+productUrl),'_blank');
+  });
+});
+</script>
+</body>
+</html>
