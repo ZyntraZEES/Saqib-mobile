@@ -4,20 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saqib Mobile Kohat — Premium Mobile Showroom</title>
-<meta name="description" content="Saqib Mobile Kohat — Premium Mobile Showroom">
+<meta name="description" content="Latest smartphones, 100% original devices and competitive prices — all in one premium showroom in the heart of Kohat. Explore Mobile Shop Now. 100% Original. 8+ brands.">
 <meta name="theme-color" content="#060606">
 <meta property="og:title" content="Saqib Mobile Kohat — Premium Mobile Showroom">
-<meta property="og:description" content="Premium mobile showroom in Kohat with original and quality-checked phones.">
+<meta property="og:description" content="Latest smartphones, 100% original devices and competitive prices — all in one premium showroom in the heart of Kohat. Explore Mobile Shop Now. 100% Original. 8+ brands.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="images/saqib official logo.png">
-<meta property="og:url" content="https://saqibmobilekohat.com">
+<meta property="og:url" content="https://saqibmobileskohat.store/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Saqib Mobile Kohat — Premium Mobile Showroom">
+<meta name="twitter:description" content="Latest smartphones, 100% original devices and competitive prices — all in one premium showroom in the heart of Kohat. Explore Mobile Shop Now. 100% Original. 8+ brands.">
 <meta name="twitter:image" content="images/saqib official logo.png">
+<link rel="canonical" href="https://saqibmobileskohat.store/">
 <link rel="icon" type="image/png" href="images/saqib official logo.png">
 <link rel="apple-touch-icon" href="images/saqib official logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#060606;
@@ -168,9 +171,22 @@ header.nav.scrolled{
   border:1px solid var(--line-strong); background:rgba(255,255,255,.03); font-size:11px;
   letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:0 auto 28px;
 }
+.hero-logo-frame{
+  position:relative; width:min(190px, 46vw); aspect-ratio:1; margin:0 auto 24px;
+  display:grid; place-items:center; isolation:isolate;
+}
+.hero-logo-frame::before{
+  content:''; position:absolute; inset:-7px; border-radius:50%;
+  background:conic-gradient(from 0deg, transparent 0 30%, rgba(212,175,55,.9) 42%, rgba(139,181,232,.8) 50%, transparent 63% 100%);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  filter:blur(1px) drop-shadow(0 0 8px rgba(212,175,55,.7));
+  animation:logoGlowSpin 4.5s linear infinite; z-index:-1;
+}
+@keyframes logoGlowSpin{to{transform:rotate(360deg)}}
 .hero-official-logo{
-  position:relative; width:min(190px, 46vw); aspect-ratio:1; object-fit:cover; display:block;
-  margin:0 auto 24px; border:1px solid rgba(210,222,239,.34); border-radius:50%;
+  position:relative; width:100%; height:100%; object-fit:cover; display:block;
+  border:1px solid rgba(210,222,239,.34); border-radius:50%;
   box-shadow:0 18px 42px rgba(0,0,0,.5), 0 0 30px rgba(139,181,232,.12), inset 0 0 0 1px rgba(255,255,255,.08);
   animation:heroLogoReveal 1s var(--ease) .12s both, heroLogoFloat 6s ease-in-out 1.2s infinite;
 }
@@ -180,13 +196,13 @@ header.nav.scrolled{
 
 @media(min-width:981px){
   .hero-inner > div:first-child{text-align:center;}
-  .hero-official-logo,.hero-badge{margin-left:auto; margin-right:auto;}
+  .hero-logo-frame,.hero-badge{margin-left:auto; margin-right:auto;}
   .hero-title{text-align:center;}
   .hero-sub{margin-left:auto; margin-right:auto;}
   .hero-ctas,.hero-stats-mini{justify-content:center;}
 }
 
-.hero-title{font-size:clamp(46px, 7vw, 84px); line-height:.98; font-weight:700; color:#fff;}
+.hero-title{font-family:'Fugaz One', cursive; font-size:clamp(46px, 7vw, 84px); line-height:.98; font-weight:700; color:#fff;}
 .hero-title .line{display:block; overflow:hidden;}
 .hero-title .line span{display:block; animation:riseUp 1s var(--ease) both;}
 .hero-title .line:nth-child(1) span{animation-delay:.05s;}
@@ -660,7 +676,7 @@ footer{background:#020202; border-top:1px solid var(--line); padding:70px 0 30px
   <div id="particles"></div>
   <div class="container hero-inner">
     <div>
-      <img class="hero-official-logo" src="images/saqib official logo.png" alt="Saqib Mobile official logo">
+      <div class="hero-logo-frame"><img class="hero-official-logo" src="images/saqib official logo.png" alt="Saqib Mobile official logo"></div>
       <div class="hero-badge"><span class="dot"></span> Wholesale &amp; Retail Dealer</div>
       <h1 class="hero-title">
         <span class="line"><span>SAQIB MOBILE</span></span>
@@ -999,19 +1015,19 @@ const PHONE_COLORS = {
 
 const PRODUCTS = [
   {brand:'Apple', model:'iPhone 15 Pro JV', spec:'8GB / 128GB', pta:'Non-PTA', cond:'Used', price:134999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['15 pro 128 gb jv 100BH jv back refined.png','15 pro 128 gb jv 100BH jv left.jpeg','15 pro 128 gb jv 100BH jv right side.jpeg']},
-  {brand:'Samsung', model:'Galaxy A07 4/128', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:45000, cam:2, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a07 4 128 back.jpeg']},
-  {brand:'Samsung', model:'Galaxy A07 6/128', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:54000, cam:2, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a07 6 128.jpeg']},
-  {brand:'Samsung', model:'Galaxy A56 12/256', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:144000, cam:3, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a56 12 256.jpeg']},
-  {brand:'Apple', model:'iPhone 15 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:164000, cam:3, arrangement:'diag', detailsPage:'product-details.html', images:['15 pro max jv 256gb back.png','15 pro max jv 256gb front.jpeg','15 pro max jv 256gb right side.jpeg']},
+  {brand:'Samsung', model:'Galaxy A07 4/128', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:45999, cam:2, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a07 4 128 back.jpeg']},
+  {brand:'Samsung', model:'Galaxy A07 6/128', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:54999, cam:2, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a07 6 128.jpeg']},
+  {brand:'Samsung', model:'Galaxy A56 12/256', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:144999, cam:3, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['galaxy a56 12 256.jpeg']},
+  {brand:'Apple', model:'iPhone 15 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:164999, cam:3, arrangement:'diag', detailsPage:'product-details.html', images:['15 pro max jv 256gb back.png','15 pro max jv 256gb front.jpeg','15 pro max jv 256gb right side.jpeg']},
   {brand:'Apple', model:'iPhone 14 Pro Max', spec:'6GB / 256GB', pta:'Non-PTA', cond:'Used', price:129999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Purple', health:'100%', images:['14 pro max 256gb back.png','14 pro max 256 gb front.jpeg','14 pro max 256 gb left.jpeg','14 pro max 256 gb right.jpeg']},
-  {brand:'Apple', model:'iPhone 13 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:125000, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13 pro max 256 jv.png','13 pro max 256gb jv left side.jpeg','13 pro max 256gb jv right side.jpeg']},
-  {brand:'Apple', model:'iPhone 13 Pro Max Non-PTA FU', spec:'FU / 100% Health', pta:'Non-PTA', cond:'Used', price:132000, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13_pro_max_non_pta_100_health_back-removebg-preview.png','13 pro max non pta 100 health left side.jpeg','13 pro max non pta 100 health right side.jpeg']},
-  {brand:'Apple', model:'iPhone 13 Pro Max JV 128GB', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:125000, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'99%', images:['13_pro_max_jv_128gb_99_health_back-removebg-preview.png','13 pro max jv 128gb 99 health left side.jpeg','13 pro max jv 128gb 99 health right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max', spec:'256GB / JV', pta:'Non-PTA', cond:'Used', price:125999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13 pro max 256 jv.png','13 pro max 256gb jv left side.jpeg','13 pro max 256gb jv right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max Non-PTA FU', spec:'FU / 100% Health', pta:'Non-PTA', cond:'Used', price:132999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13_pro_max_non_pta_100_health_back-removebg-preview.png','13 pro max non pta 100 health left side.jpeg','13 pro max non pta 100 health right side.jpeg']},
+  {brand:'Apple', model:'iPhone 13 Pro Max JV 128GB', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:125999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'99%', images:['13_pro_max_jv_128gb_99_health_back-removebg-preview.png','13 pro max jv 128gb 99 health left side.jpeg','13 pro max jv 128gb 99 health right side.jpeg']},
   {brand:'Apple', model:'iPhone 13 Pro Max Gold', spec:'128GB / JV', pta:'Non-PTA', cond:'Used', price:129999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Gold', health:'100%', images:['13 pro max 128gb golden.png','13 pro max 128gb golden left side.jpeg','13 pro max 128gb golden right.jpeg']},
   {brand:'Apple', model:'iPhone 13 Pro', spec:'6GB / 128GB', pta:'Non-PTA', cond:'Used', price:109999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Silver', health:'100%', images:['13 pro non pta fu 128gb.png','13 pro non pta fu 128gb left side.jpeg','13 pro non pta fu 128gb right side.jpeg']},
   {brand:'Apple', model:'iPhone 13 Pro PTA Approved', spec:'6GB / 512GB', pta:'Approved', cond:'Used', price:179999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Silver', health:'Confirm at showroom', images:['13 pro pta approved 512gb.png','13 pro pta approved 512gb left side.jpeg','13 pro pta approved 512gb right side.jpeg']},
   {brand:'Apple', model:'iPhone 13 Pro Max PTA', spec:'256GB / PTA Approved', pta:'Approved', cond:'Used', price:179999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Black', health:'100%', images:['13 pro max pta approved 256gb 100% BH.png','13 pro max pta approved pta ok left side.jpeg','13 pro max pta approved pta ok right side.jpeg']},
-  {brand:'Apple', model:'iPhone 13', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:179000, cam:2, arrangement:'diag'},
+  {brand:'Apple', model:'iPhone 13', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:179999, cam:2, arrangement:'diag'},
   {brand:'Apple', model:'iPhone 14 Red', spec:'Storage to confirm / 86% Health', pta:'Non-PTA', cond:'Used', price:69999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Red', health:'86%', images:['14_simple_red_colour_86BH_back-removebg-preview.png','14 simple red colour 86BH left.jpeg','14 simple red colour 86BH right .jpeg']},
   {brand:'Apple', model:'iPhone 13 Simple 87% BH', spec:'Storage to confirm', pta:'Non-PTA', cond:'Used', price:59999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'87%', images:['13_simple_87_BH_back-removebg-preview.png','13 simple 87 BH left.jpeg','13 simple 87 BH right.jpeg']},
   {brand:'Apple', model:'iPhone 13 Simple JV 128GB', spec:'4GB / 128GB', pta:'Non-PTA', cond:'Used', price:64999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'100%', images:['13_simple_128_100BH_jv_back-removebg-preview.png','13 simple 128 100BH jv left.jpeg','13 simple 128 100BH jv right.jpeg']},
@@ -1022,29 +1038,29 @@ const PRODUCTS = [
   {brand:'Apple', model:'iPhone XR PTA 128GB', spec:'4GB / 128GB', pta:'Approved', cond:'Used', price:49999, cam:1, arrangement:'diag', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['xr_pta_128gb_back-removebg-preview.png','xr pta 128gb left.jpeg','xr pta 128gb right.jpeg']},
   {brand:'Samsung', model:'Galaxy S24 Ultra CPID', spec:'12GB / 256GB', pta:'CPID', cond:'Used', price:199999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s24_ultra_cpid_back-removebg-preview.png','s24 ultra cpid left.jpeg','s24 ultra cpid right.jpeg']},
   {brand:'Samsung', model:'Galaxy S22 Ultra Official PTA', spec:'12GB / 256GB', pta:'Approved', cond:'Used', price:144999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['S22_ultra_official_pta_back-removebg-preview.png','S22 ultra official pta left.jpeg','S22 ultra official pta right.jpeg']},
-  {brand:'Samsung', model:'Samsung S22 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:154000, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s22 ultra box pack.jpeg']},
+  {brand:'Samsung', model:'Samsung S22 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:154999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s22 ultra box pack.jpeg']},
   {brand:'Samsung', model:'Galaxy S25 12 256 CPID', spec:'12GB / 256GB', pta:'CPID', cond:'Used', price:0, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['S25_12_256_cpid_back-removebg-preview.png','S25 12 256 cpid left.jpeg','S25 12 256 cpid right.jpeg']},
-  {brand:'Samsung', model:'Samsung S23 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:185000, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s23 ultra box pack back.jpeg']},
-  {brand:'Infinix', model:'Hot 40i', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:29000, cam:2, arrangement:'circle'},
-  {brand:'Infinix', model:'Infinix Hot 60 Pro+', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:0, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix hot 60 pro+.jpeg']},
-  {brand:'Infinix', model:'Infinix Note 60 Pro', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:115000, cam:3, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix note 60 pro.jpeg']},
-  {brand:'Infinix', model:'Infinix Smart 20', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:0, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix smart 20.jpeg']},
-  {brand:'Tecno', model:'Spark 20', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:34000, cam:2, arrangement:'circle'},
-  {brand:'Nubia', model:'Nubia A36 Gold', spec:'8GB / 256GB', pta:'Non-PTA', cond:'Used', price:33000, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Gold', health:'Confirm at showroom', images:['nubia a36 gold.jpeg']},
-  {brand:'Pixel', model:'Pixel 8 Blue Box Pack', spec:'8GB / 128GB', pta:'Non-PTA', cond:'Used', price:130000, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Blue', health:'Confirm at showroom', images:['pixel 8 blue box pack back.jpeg']},
-  {brand:'Pixel', model:'Pixel 8 Pro Blue Box Pack', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:100000, cam:3, arrangement:'squircle', detailsPage:'product-details.html', color:'Blue', health:'Confirm at showroom', images:['pixel 8 pro blue box pack.jpeg']},
-  {brand:'Pixel', model:'Pixel 8 Pro Brown', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:130000, cam:3, arrangement:'squircle', detailsPage:'product-details.html', color:'Brown', health:'Confirm at showroom', images:['pixel 8 pro brown.jpeg']},
-  {brand:'Pixel', model:'Pixel 8 Pro', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:239000, cam:3, arrangement:'squircle'},
-  {brand:'Realme', model:'Realme C71', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:50000, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme c71.jpeg']},
-  {brand:'Realme', model:'Realme C100 Box Pack', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:40000, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme c100 box pack.jpeg']},
-  {brand:'Realme', model:'Realme Note 60X Box Pack', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:40000, cam:3, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme note60x box pack.jpeg']},
+  {brand:'Samsung', model:'Samsung S23 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:185999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s23 ultra box pack back.jpeg']},
+  {brand:'Infinix', model:'Hot 40i', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:29999, cam:2, arrangement:'circle'},
+  {brand:'Infinix', model:'Infinix Hot 60 Pro+', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:85999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix hot 60 pro+.jpeg']},
+  {brand:'Infinix', model:'Infinix Note 60 Pro', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:115999, cam:3, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix note 60 pro.jpeg']},
+  {brand:'Infinix', model:'Infinix Smart 20', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:44999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['infinix smart 20.jpeg']},
+  {brand:'Tecno', model:'Spark 20', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:34999, cam:2, arrangement:'circle'},
+  {brand:'Nubia', model:'Nubia A36 Gold', spec:'8GB / 256GB', pta:'Non-PTA', cond:'Used', price:33999, cam:3, arrangement:'diag', detailsPage:'product-details.html', color:'Gold', health:'Confirm at showroom', images:['nubia a36 gold.jpeg']},
+  {brand:'Pixel', model:'Pixel 8 Blue Box Pack', spec:'8GB / 128GB', pta:'Non-PTA', cond:'Used', price:130999, cam:2, arrangement:'diag', detailsPage:'product-details.html', color:'Blue', health:'Confirm at showroom', images:['pixel 8 blue box pack back.jpeg']},
+  {brand:'Pixel', model:'Pixel 8 Pro Blue Box Pack', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:100999, cam:3, arrangement:'squircle', detailsPage:'product-details.html', color:'Blue', health:'Confirm at showroom', images:['pixel 8 pro blue box pack.jpeg']},
+  {brand:'Pixel', model:'Pixel 8 Pro Brown', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:130999, cam:3, arrangement:'squircle', detailsPage:'product-details.html', color:'Brown', health:'Confirm at showroom', images:['pixel 8 pro brown.jpeg']},
+  {brand:'Pixel', model:'Pixel 8 Pro', spec:'12GB / 128GB', pta:'Approved', cond:'Used', price:239999, cam:3, arrangement:'squircle'},
+  {brand:'Realme', model:'Realme C71', spec:'6GB / 128GB', pta:'Non-PTA', cond:'New', price:50999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme c71.jpeg']},
+  {brand:'Realme', model:'Realme C100 Box Pack', spec:'4GB / 128GB', pta:'Non-PTA', cond:'New', price:40999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme c100 box pack.jpeg']},
+  {brand:'Realme', model:'Realme Note 60X Box Pack', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:40999, cam:3, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['realme note60x box pack.jpeg']},
   {brand:'Redmi', model:'Redmi 15C', spec:'12GB / 256GB', pta:'Non-PTA', cond:'New', price:49999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['redmi 15c.jpeg']},
-  {brand:'Redmi', model:'Redmi A70 Pro', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:39000, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['redmi a70 pro.jpeg']},
-  {brand:'Samsung', model:'Samsung S21 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:154000, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s21 ultra box pack back.jpeg']},
+  {brand:'Redmi', model:'Redmi A70 Pro', spec:'8GB / 256GB', pta:'Non-PTA', cond:'New', price:39999, cam:2, arrangement:'circle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['redmi a70 pro.jpeg']},
+  {brand:'Samsung', model:'Samsung S21 Ultra Box Pack', spec:'12GB / 256GB', pta:'Non-PTA', cond:'Used', price:154999, cam:4, arrangement:'vert', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['s21 ultra box pack back.jpeg']},
   {brand:'Pixel', model:'Pixel 8 PTA OK', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:0, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_8_pta_ok_back-removebg-preview.png','pixel 8 pta ok left.jpeg','pixel 8 pta ok right.jpeg']},
   {brand:'Pixel', model:'Pixel 8 CPID', spec:'8GB / 128GB', pta:'CPID', cond:'Used', price:94999, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_8_cpid_back-removebg-preview.png','pixel 8 cpid left.jpeg','pixel 8 cpid right.jpeg']},
   {brand:'Pixel', model:'Pixel 6a PTA Approved', spec:'6GB / 128GB', pta:'Approved', cond:'Used', price:49999, cam:2, arrangement:'squircle', detailsPage:'product-details.html', color:'Confirm at showroom', health:'Confirm at showroom', images:['pixel_6a_pta_approved_back-removebg-preview.png','pixel 6a pta approved right.jpeg']},
-  {brand:'Pixel', model:'Pixel 7a', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:129000, cam:2, arrangement:'squircle'},
+  {brand:'Pixel', model:'Pixel 7a', spec:'8GB / 128GB', pta:'Approved', cond:'Used', price:129999, cam:2, arrangement:'squircle'},
 ];
 
 const ACCESSORIES = [
@@ -1249,7 +1265,12 @@ ACCESSORIES.forEach(a=>{
 });
 
 /* ================= HERO / SPLIT PHONES ================= */
-document.getElementById('heroPhone').innerHTML = '<img src="images/15 pro max jv 256gb back.png" alt="iPhone 15 Pro Max 256GB Non-PTA JV">';
+const heroPhone = document.getElementById('heroPhone');
+const heroWaText = 'Hi Saqib Mobile, I am interested in iPhone 15 Pro Max 256GB / JV Non-PTA. 165000 demand available hai?';
+heroPhone.innerHTML = '<img src="images/15 pro max jv 256gb back.png" alt="iPhone 15 Pro Max 256GB Non-PTA JV">';
+heroPhone.style.cursor = 'pointer';
+heroPhone.dataset.wa = `https://wa.me/923356661888?text=${encodeURIComponent(heroWaText)}`;
+heroPhone.addEventListener('click', ()=>window.open(heroPhone.dataset.wa, '_blank'));
 document.getElementById('splitPhone').outerHTML = phoneSVG('Samsung','vert',170).replace('<svg','<svg id="splitPhone"');
 
 /* ================= MARQUEE ================= */
